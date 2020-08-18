@@ -57,6 +57,7 @@ In your form processing script (PHP file) you will need to do the following
     // Include the BillMap API script to complete the transaction with BillMap
     // Define _YUP_API so that the API will run (see api file for details)
     define('_YUP_API', true);
+    require_once('../config.php');
     require_once('/shop/curl/yup/api/billmap-api.php');
     $yup = new YupActionAuthenticateDebit;
     $result = $yup->run();
@@ -74,7 +75,6 @@ You will need this file added to the YUP API files for the above code to work.Cr
     define('YUPAPI_PATH', __DIR__);
 
     // Include the YUPAPI base class
-    require_once('../config.php');
     require_once(YUPAPI_PATH . '/actions/yup-action.class.php');
 
     class YupActionAuthenticateDebit extends YupAction {
@@ -104,8 +104,8 @@ You will need this file added to the YUP API files for the above code to work.Cr
                 return false;
             }
 
-            if (isset($_POST['token'])) {
-                $data->Token = $_POST['token'];
+            if (isset($_POST['txt_yupc'])) {
+                $data->Token = $_POST['txt_yupc'];
             } else {
                 return false;
             }
