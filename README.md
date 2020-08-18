@@ -74,6 +74,7 @@ You will need this file added to the YUP API files for the above code to work.Cr
     define('YUPAPI_PATH', __DIR__);
 
     // Include the YUPAPI base class
+    require_once('../config.php');
     require_once(YUPAPI_PATH . '/actions/yup-action.class.php');
 
     class YupActionAuthenticateDebit extends YupAction {
